@@ -1,0 +1,230 @@
+@import "./common/flags.css";
+
+.voby-tel-input .form-control {
+    position      : relative;
+    font-size     : 14px;
+    letter-spacing: .01rem;
+    margin-top    : 0 !important;
+    margin-bottom : 0 !important;
+    padding-left  : 48px;
+    margin-left   : 0;
+    background    : #FFFFFF;
+    border        : 1px solid #CACACA;
+    border-radius : 5px;
+    line-height   : 25px;
+    height        : 35px;
+    width         : 300px;
+    outline       : none;
+}
+
+.voby-tel-input .form-control:hover {
+    border-color: #a2a2a2;
+}
+
+.voby-tel-input .form-control.invalid-number {
+    border           : 1px solid #d79f9f;
+    background-color : #FAF0F0;
+    border-left-color: #cacaca;
+}
+
+.voby-tel-input .form-control.invalid-number:focus {
+    border           : 1px solid #d79f9f;
+    border-left-color: #cacaca;
+    background-color : #FAF0F0;
+}
+
+.voby-tel-input .form-control.open {
+    box-shadow   : rgba(34, 36, 38, 0.15) 0px 2px 3px 0px;
+    border-color : #96c8da;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+    box-shadow   : none;
+}
+
+.voby-tel-input .flag-dropdown {
+    position        : absolute;
+    top             : 0;
+    bottom          : 0;
+    padding         : 0;
+    background-color: #f5f5f5;
+    border          : 1px solid #cacaca;
+    border-radius   : 3px 0 0 3px;
+}
+
+.voby-tel-input .flag-dropdown:hover,
+.voby-tel-input .flag-dropdown:focus {
+    cursor: pointer;
+}
+
+.voby-tel-input .flag-dropdown.open {
+    background   : #fff;
+    border-radius: 3px 0 0 0;
+}
+
+.voby-tel-input .flag-dropdown.open .selected-flag {
+    background   : #fff;
+    border-radius: 3px 0 0 0;
+}
+
+.voby-tel-input input[disabled]+.flag-dropdown:hover {
+    cursor: default;
+}
+
+.voby-tel-input input[disabled]+.flag-dropdown:hover .selected-flag {
+    background-color: transparent;
+}
+
+.voby-tel-input .selected-flag {
+    outline      : none;
+    position     : relative;
+    width        : 38px;
+    height       : 100%;
+    padding      : 0 0 0 8px;
+    border-radius: 3px 0 0 3px;
+}
+
+.voby-tel-input .selected-flag:hover,
+.voby-tel-input .selected-flag:focus {
+    background-color: #fff;
+}
+
+.voby-tel-input .selected-flag .flag {
+    position  : absolute;
+    top       : 50%;
+    margin-top: -5px;
+}
+
+.voby-tel-input .selected-flag .arrow {
+    position    : relative;
+    top         : 50%;
+    margin-top  : -2px;
+    left        : 20px;
+    width       : 0;
+    height      : 0;
+    border-left : 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top  : 4px solid #555;
+}
+
+.voby-tel-input .selected-flag .arrow.up {
+    border-top   : none;
+    border-bottom: 4px solid #555;
+}
+
+.voby-tel-input .selected-flag.open {
+    z-index: 2;
+}
+
+.voby-tel-input .country-list {
+    outline         : none;
+    z-index         : 1;
+    border-radius   : 0 0 5px 5px;
+    border          : 1px solid #96c8da;
+    border-top      : none;
+    list-style      : none;
+    position        : absolute;
+    padding         : 0;
+    margin          : 0px 0 10px -1px;
+    box-shadow      : 1px 2px 10px rgba(0, 0, 0, 0.12);
+    background-color: white;
+    width           : 300px;
+    max-height      : 200px;
+    overflow-y      : scroll;
+}
+
+.voby-tel-input .country-list .flag {
+    display: inline-block;
+}
+
+.voby-tel-input .country-list .divider {
+    padding-bottom: 5px;
+    margin-bottom : 5px;
+    border-bottom : 1px solid #ccc;
+}
+
+.voby-tel-input .country-list .country {
+    padding: 7px 9px;
+}
+
+.voby-tel-input .country-list .country .dial-code {
+    color: #6b6b6b;
+}
+
+.voby-tel-input .country-list .country:hover {
+    background-color: #f1f1f1;
+}
+
+.voby-tel-input .country-list .country.highlight {
+    background-color: #f1f1f1;
+}
+
+.voby-tel-input .country-list .flag {
+    margin-right: 7px;
+    margin-top  : 2px;
+}
+
+.voby-tel-input .country-list .country-name {
+    margin-right: 6px;
+}
+
+.voby-tel-input .country-list .search {
+    position        : sticky;
+    top             : 0;
+    background-color: #fff;
+    padding         : 5px 0 6px 10px;
+}
+
+.voby-tel-input .country-list .search-emoji {
+    display  : none;
+    font-size: 15px;
+}
+
+.voby-tel-input .country-list .search-box {
+    border       : 1px solid #cacaca;
+    border-radius: 3px;
+    font-size    : 15px;
+    line-height  : 15px;
+    padding      : 3px 8px 5px;
+    outline      : none;
+}
+
+.voby-tel-input .country-list .no-entries-message {
+    padding: 7px 10px 11px;
+    opacity: .7;
+}
+
+.voby-tel-input .country-list::-webkit-scrollbar {
+    width: 12px;
+}
+
+.voby-tel-input .country-list::-webkit-scrollbar-track {
+    background-color: #e6e6e6;
+}
+
+.voby-tel-input .country-list::-webkit-scrollbar-thumb {
+    background-color: #c5c5c4;
+    border-radius   : 5px;
+}
+
+.voby-tel-input .invalid-number-message {
+    position  : absolute;
+    z-index   : 1;
+    font-size : 13px;
+    left      : 46px;
+    top       : -8px;
+    background: #fff;
+    padding   : 0 2px;
+    color     : #de0000;
+}
+
+.voby-tel-input .special-label {
+    display    : none;
+    position   : absolute;
+    z-index    : 1;
+    font-size  : 13px;
+    left       : 46px;
+    top        : -8px;
+    background : #fff;
+    padding    : 0 2px;
+    white-space: nowrap;
+}
