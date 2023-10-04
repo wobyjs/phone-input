@@ -511,10 +511,6 @@ const placeholder = useMemo(() => {
 ```
 </details>
 
-### CDN
-```html
-<script src="https://unpkg.com/react-phone-input-2@2.x/dist/lib.js"></script>
-```
 
 ## Contributing
 - Code style changes not allowed
@@ -524,6 +520,6 @@ const placeholder = useMemo(() => {
 ## License
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/react-phone-input-2/blob/master/LICENSE)
 
-Based on [react-phone-input](https://github.com/razagill/react-phone-input)
+Based on [react-phone-input-2](https://github.com/bl00mber/react-phone-input-2)
 
-Make sure you donated for lib maintenance [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/bloomber/20)
+Make sure you donated for lib maintenance [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/wongchichong)
