@@ -1,5 +1,5 @@
 import './index.css'
-import { $, render } from 'voby'
+import { $, render } from 'woby'
 import { PhoneInput } from '../../src/index'
 import '../../src/style/material.css'
 

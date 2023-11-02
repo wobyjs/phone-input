@@ -1,4 +1,4 @@
-import { Observable, CSSProperties, type JSX, ObservableMaybe } from 'voby';
+import { Observable, CSSProperties, type JSX, ObservableMaybe } from 'woby';
 import { Country } from './Country';
 import { getCountryData } from './utils';
 interface PhoneInputProps {

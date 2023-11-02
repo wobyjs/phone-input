@@ -1,6 +1,6 @@
 (function(global2, factory) {
-  typeof exports === "object" && typeof module !== "undefined" ? factory(exports, require("voby/jsx-runtime"), require("voby")) : typeof define === "function" && define.amd ? define(["exports", "voby/jsx-runtime", "voby"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2["voby-modal"] = {}, global2["voby/jsx-runtime"], global2.voby));
-})(this, function(exports2, jsxRuntime, voby) {
+  typeof exports === "object" && typeof module !== "undefined" ? factory(exports, require("woby/jsx-runtime"), require("woby")) : typeof define === "function" && define.amd ? define(["exports", "woby/jsx-runtime", "woby"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2["woby-modal"] = {}, global2["woby/jsx-runtime"], global2.woby));
+})(this, function(exports2, jsxRuntime, woby) {
   "use strict";
   var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
   function getDefaultExportFromCjs(x) {
@@ -3227,8 +3227,8 @@
       return;
     if (!container || !document.body)
       return;
-    const containerHeight = voby.$$(container).offsetHeight;
-    const containerOffset = voby.$$(container).getBoundingClientRect();
+    const containerHeight = woby.$$(container).offsetHeight;
+    const containerOffset = woby.$$(container).getBoundingClientRect();
     const containerTop = containerOffset.top + document.body.scrollTop;
     const containerBottom = containerTop + containerHeight;
     const element = country;
@@ -3236,19 +3236,19 @@
     const elementHeight = element.offsetHeight;
     const elementTop = elementOffset.top + document.body.scrollTop;
     const elementBottom = elementTop + elementHeight;
-    let newScrollTop = elementTop - containerTop + voby.$$(container).scrollTop;
+    let newScrollTop = elementTop - containerTop + woby.$$(container).scrollTop;
     const middleOffset = containerHeight / 2 - elementHeight / 2;
     if (enableSearch ? elementTop < containerTop + 32 : elementTop < containerTop) {
       if (middle) {
         newScrollTop -= middleOffset;
       }
-      voby.$$(container).scrollTop = newScrollTop;
+      woby.$$(container).scrollTop = newScrollTop;
     } else if (elementBottom > containerBottom) {
       if (middle) {
         newScrollTop += middleOffset;
       }
       const heightDifference = containerHeight - elementHeight;
-      voby.$$(container).scrollTop = newScrollTop - heightDifference;
+      woby.$$(container).scrollTop = newScrollTop - heightDifference;
     }
   };
   const scrollToTop = (container) => {
@@ -3260,7 +3260,7 @@
     if (!queryString || queryString.length === 0) {
       return null;
     }
-    const probableCountries = voby.$$(onlyCountries).filter((country) => {
+    const probableCountries = woby.$$(onlyCountries).filter((country) => {
       return startsWith$1(country.name.toLowerCase(), queryString.toLowerCase());
     }, void 0);
     return probableCountries[0];
@@ -3278,9 +3278,9 @@
   const guessSelectedCountry = memoize$1((inputNumber, country, onlyCountries, hiddenAreaCodes, enableAreaCodes, THIS) => {
     if (enableAreaCodes === false) {
       let mainCode;
-      voby.$$(hiddenAreaCodes).some((country2) => {
+      woby.$$(hiddenAreaCodes).some((country2) => {
         if (startsWith$1(inputNumber, country2.dialCode)) {
-          voby.$$(onlyCountries).some((o) => {
+          woby.$$(onlyCountries).some((o) => {
             if (country2.iso2 === o.iso2 && o.mainCode) {
               mainCode = o;
               return true;
@@ -3292,7 +3292,7 @@
       if (mainCode)
         return mainCode;
     }
-    const secondBestGuess = voby.$$(onlyCountries).find((o) => o.iso2 == country);
+    const secondBestGuess = woby.$$(onlyCountries).find((o) => o.iso2 == country);
     if (inputNumber.trim() === "")
       return secondBestGuess;
     const bestGuess = onlyCountries.reduce(
@@ -3335,60 +3335,60 @@
   };
   const PhoneInput = (propertis) => {
     const props = {
-      country: voby.$(""),
-      value: voby.$(""),
-      onlyCountries: voby.$([]),
-      preferredCountries: voby.$([]),
-      excludeCountries: voby.$([]),
-      placeholder: voby.$("1 (702) 123-4567"),
-      searchPlaceholder: voby.$("search"),
-      searchNotFound: voby.$("No entries to show"),
-      flagsImagePath: voby.$("./flags.png"),
-      disabled: voby.$(false),
-      containerStyle: voby.$({}),
-      inputStyle: voby.$({}),
-      buttonStyle: voby.$({}),
-      dropdownStyle: voby.$({}),
-      searchStyle: voby.$({}),
-      containerClass: voby.$(""),
-      inputClass: voby.$(null),
-      buttonClass: voby.$(null),
-      dropdownClass: voby.$(null),
-      searchClass: voby.$(null),
-      className: voby.$(null),
-      autoFormat: voby.$(true),
-      enableAreaCodes: voby.$(false),
-      enableTerritories: voby.$(false),
-      disableCountryCode: voby.$(false),
-      disableDropdown: voby.$(false),
-      enableLongNumbers: voby.$(false),
-      countryCodeEditable: voby.$(true),
-      enableSearch: voby.$(false),
-      disableSearchIcon: voby.$(false),
-      disableInitialCountryGuess: voby.$(false),
-      disableCountryGuess: voby.$(false),
-      regions: voby.$(""),
-      inputProps: voby.$({}),
-      localization: voby.$({}),
-      masks: voby.$(null),
-      priority: voby.$(null),
-      areaCodes: voby.$(null),
-      preserveOrder: voby.$([]),
-      defaultMask: voby.$("... ... ... ... .."),
+      country: woby.$(""),
+      value: woby.$(""),
+      onlyCountries: woby.$([]),
+      preferredCountries: woby.$([]),
+      excludeCountries: woby.$([]),
+      placeholder: woby.$("1 (702) 123-4567"),
+      searchPlaceholder: woby.$("search"),
+      searchNotFound: woby.$("No entries to show"),
+      flagsImagePath: woby.$("./flags.png"),
+      disabled: woby.$(false),
+      containerStyle: woby.$({}),
+      inputStyle: woby.$({}),
+      buttonStyle: woby.$({}),
+      dropdownStyle: woby.$({}),
+      searchStyle: woby.$({}),
+      containerClass: woby.$(""),
+      inputClass: woby.$(null),
+      buttonClass: woby.$(null),
+      dropdownClass: woby.$(null),
+      searchClass: woby.$(null),
+      className: woby.$(null),
+      autoFormat: woby.$(true),
+      enableAreaCodes: woby.$(false),
+      enableTerritories: woby.$(false),
+      disableCountryCode: woby.$(false),
+      disableDropdown: woby.$(false),
+      enableLongNumbers: woby.$(false),
+      countryCodeEditable: woby.$(true),
+      enableSearch: woby.$(false),
+      disableSearchIcon: woby.$(false),
+      disableInitialCountryGuess: woby.$(false),
+      disableCountryGuess: woby.$(false),
+      regions: woby.$(""),
+      inputProps: woby.$({}),
+      localization: woby.$({}),
+      masks: woby.$(null),
+      priority: woby.$(null),
+      areaCodes: woby.$(null),
+      preserveOrder: woby.$([]),
+      defaultMask: woby.$("... ... ... ... .."),
       // prefix+dialCode+' '+defaultMask
-      alwaysDefaultMask: voby.$(false),
-      prefix: voby.$("+"),
-      copyNumbersOnly: voby.$(true),
-      renderStringAsFlag: voby.$(""),
-      autocompleteSearch: voby.$(false),
-      jumpCursorToEnd: voby.$(true),
-      enableAreaCodeStretch: voby.$(false),
-      enableClickOutside: voby.$(true),
-      showDropdown: voby.$(false),
-      isValid: voby.$(true),
+      alwaysDefaultMask: woby.$(false),
+      prefix: woby.$("+"),
+      copyNumbersOnly: woby.$(true),
+      renderStringAsFlag: woby.$(""),
+      autocompleteSearch: woby.$(false),
+      jumpCursorToEnd: woby.$(true),
+      enableAreaCodeStretch: woby.$(false),
+      enableClickOutside: woby.$(true),
+      showDropdown: woby.$(false),
+      isValid: woby.$(true),
       // (value, $$(selectedCountry), $$(onlyCountries), hiddenAreaCodes) => true | false | 'Message'
-      defaultErrorMessage: voby.$(""),
-      specialLabel: voby.$("Phone"),
+      defaultErrorMessage: woby.$(""),
+      specialLabel: woby.$("Phone"),
       onEnterKeyPress: null,
       // null or function
       ...propertis
@@ -3406,20 +3406,20 @@
       SPACE: 32,
       TAB: 9
     };
-    const showDropdown = voby.isObservable(props.showDropdown) ? props.showDropdown : voby.$(props.showDropdown);
-    const formattedNumber = voby.$("");
-    const hiddenAreaCodes = voby.$([]);
-    const selectedCountry = voby.$(null);
-    const highlightCountryIndex = voby.$(null);
-    const queryString = voby.$("");
-    const freezeSelection = voby.$(false);
-    const searchValue = voby.$("");
-    const debouncedQueryStingSearcher = voby.$();
-    const dropdownRef = voby.$(null);
-    const numberInputRef = voby.$(null);
-    const dropdownContainerRef = voby.$(null);
-    const countryGuess = voby.$();
-    const placeholder = voby.$("");
+    const showDropdown = woby.isObservable(props.showDropdown) ? props.showDropdown : woby.$(props.showDropdown);
+    const formattedNumber = woby.$("");
+    const hiddenAreaCodes = woby.$([]);
+    const selectedCountry = woby.$(null);
+    const highlightCountryIndex = woby.$(null);
+    const queryString = woby.$("");
+    const freezeSelection = woby.$(false);
+    const searchValue = woby.$("");
+    const debouncedQueryStingSearcher = woby.$();
+    const dropdownRef = woby.$(null);
+    const numberInputRef = woby.$(null);
+    const dropdownContainerRef = woby.$(null);
+    const countryGuess = woby.$();
+    const placeholder = woby.$("");
     const THIS = {};
     const {
       disableDropdown,
@@ -3458,46 +3458,46 @@
       onKeyDown
     } = props;
     const { onlyCountries: oc, preferredCountries: pc, hiddenAreaCodes: ha } = new CountryData(
-      voby.$$(enableAreaCodes),
-      voby.$$(enableTerritories),
-      voby.$$(regions),
-      voby.$$(onlyCountries),
-      voby.$$(preferredCountries),
-      voby.$$(excludeCountries),
-      voby.$$(preserveOrder),
-      voby.$$(masks),
-      voby.$$(priority),
-      voby.$$(areaCodes),
-      voby.$$(localization),
-      voby.$$(prefix),
-      voby.$$(defaultMask),
-      voby.$$(alwaysDefaultMask)
+      woby.$$(enableAreaCodes),
+      woby.$$(enableTerritories),
+      woby.$$(regions),
+      woby.$$(onlyCountries),
+      woby.$$(preferredCountries),
+      woby.$$(excludeCountries),
+      woby.$$(preserveOrder),
+      woby.$$(masks),
+      woby.$$(priority),
+      woby.$$(areaCodes),
+      woby.$$(localization),
+      woby.$$(prefix),
+      woby.$$(defaultMask),
+      woby.$$(alwaysDefaultMask)
     );
     onlyCountries(oc);
     preferredCountries(pc);
     hiddenAreaCodes(ha);
-    const inputNumber = voby.$$(props.value) ? voby.$$(props.value).replace(/\D/g, "") : "";
-    if (voby.$$(props.disableInitialCountryGuess)) {
+    const inputNumber = woby.$$(props.value) ? woby.$$(props.value).replace(/\D/g, "") : "";
+    if (woby.$$(props.disableInitialCountryGuess)) {
       countryGuess(0);
     } else if (inputNumber.length > 1) {
-      countryGuess(guessSelectedCountry(inputNumber.substring(0, 6), voby.$$(props.country), voby.$$(onlyCountries), voby.$$(hiddenAreaCodes), voby.$$(props.enableAreaCodes), THIS) || 0);
-    } else if (voby.$$(props.country)) {
-      countryGuess(voby.$$(onlyCountries).find((o) => o.iso2 == voby.$$(props.country)) || 0);
+      countryGuess(guessSelectedCountry(inputNumber.substring(0, 6), woby.$$(props.country), woby.$$(onlyCountries), woby.$$(hiddenAreaCodes), woby.$$(props.enableAreaCodes), THIS) || 0);
+    } else if (woby.$$(props.country)) {
+      countryGuess(woby.$$(onlyCountries).find((o) => o.iso2 == woby.$$(props.country)) || 0);
     } else {
       countryGuess(0);
     }
-    const dialCode = inputNumber.length < 2 && voby.$$(countryGuess) && !startsWith$1(inputNumber, voby.$$(countryGuess).dialCode) ? voby.$$(countryGuess).dialCode : "";
+    const dialCode = inputNumber.length < 2 && woby.$$(countryGuess) && !startsWith$1(inputNumber, woby.$$(countryGuess).dialCode) ? woby.$$(countryGuess).dialCode : "";
     const formatNumber = (text, country2) => {
       if (!country2)
         return text;
       const { format } = country2;
       let pattern;
-      if (voby.$$(disableCountryCode)) {
+      if (woby.$$(disableCountryCode)) {
         pattern = format.split(" ");
         pattern.shift();
         pattern = pattern.join(" ");
       } else {
-        if (voby.$$(enableAreaCodeStretch) && country2.isAreaCode) {
+        if (woby.$$(enableAreaCodeStretch) && country2.isAreaCode) {
           pattern = format.split(" ");
           pattern[1] = pattern[1].replace(/\.+/, "".padEnd(country2.areaCodeLength, "."));
           pattern = pattern.join(" ");
@@ -3506,10 +3506,10 @@
         }
       }
       if (!text || text.length === 0) {
-        return voby.$$(disableCountryCode) ? "" : voby.$$(props.prefix);
+        return woby.$$(disableCountryCode) ? "" : woby.$$(props.prefix);
       }
-      if (text && text.length < 2 || !pattern || !voby.$$(autoFormat)) {
-        return voby.$$(disableCountryCode) ? text : voby.$$(props.prefix) + text;
+      if (text && text.length < 2 || !pattern || !woby.$$(autoFormat)) {
+        return woby.$$(disableCountryCode) ? text : woby.$$(props.prefix) + text;
       }
       const formattedObject = reduce(pattern, (acc, character) => {
         if (acc.remainingText.length === 0) {
@@ -3531,7 +3531,7 @@
         remainingText: text.split("")
       });
       let formattedNumber_;
-      if (voby.$$(enableLongNumbers)) {
+      if (woby.$$(enableLongNumbers)) {
         formattedNumber_ = formattedObject.formattedText + formattedObject.remainingText.join("");
       } else {
         formattedNumber_ = formattedObject.formattedText;
@@ -3541,20 +3541,20 @@
       return formattedNumber_;
     };
     formattedNumber(
-      inputNumber === "" && voby.$$(countryGuess) === 0 ? "" : formatNumber(
-        (voby.$$(props.disableCountryCode) ? "" : dialCode) + inputNumber,
-        voby.$$(countryGuess).name ? voby.$$(countryGuess) : void 0
+      inputNumber === "" && woby.$$(countryGuess) === 0 ? "" : formatNumber(
+        (woby.$$(props.disableCountryCode) ? "" : dialCode) + inputNumber,
+        woby.$$(countryGuess).name ? woby.$$(countryGuess) : void 0
       )
     );
     const searchCountry = () => {
-      const probableCandidate = getProbableCandidate(voby.$$(queryString), voby.$$(onlyCountries)) || voby.$$(onlyCountries)[0];
-      const probableCandidateIndex = voby.$$(onlyCountries).findIndex((o) => o == probableCandidate) + voby.$$(preferredCountries).length;
-      scrollTo(getElement(probableCandidateIndex), voby.$$(props.enableSearch), dropdownRef, true);
+      const probableCandidate = getProbableCandidate(woby.$$(queryString), woby.$$(onlyCountries)) || woby.$$(onlyCountries)[0];
+      const probableCandidateIndex = woby.$$(onlyCountries).findIndex((o) => o == probableCandidate) + woby.$$(preferredCountries).length;
+      scrollTo(getElement(probableCandidateIndex), woby.$$(props.enableSearch), dropdownRef, true);
       queryString("");
       highlightCountryIndex(probableCandidateIndex);
     };
-    highlightCountryIndex(voby.$$(onlyCountries).findIndex((o) => o == voby.$$(countryGuess)));
-    selectedCountry(voby.$$(countryGuess));
+    highlightCountryIndex(woby.$$(onlyCountries).findIndex((o) => o == woby.$$(countryGuess)));
+    selectedCountry(woby.$$(countryGuess));
     queryString("");
     freezeSelection(false);
     debouncedQueryStingSearcher(debounce$1(searchCountry, 250));
@@ -3562,38 +3562,38 @@
     const updateCountry = (country2) => {
       let newSelectedCountry;
       if (country2.indexOf(0) >= "0" && country2.indexOf(0) <= "9") {
-        newSelectedCountry = voby.$$(onlyCountries).find((o) => +o.dialCode == +country2);
+        newSelectedCountry = woby.$$(onlyCountries).find((o) => +o.dialCode == +country2);
       } else {
-        newSelectedCountry = voby.$$(onlyCountries).find((o) => o.iso2 == country2);
+        newSelectedCountry = woby.$$(onlyCountries).find((o) => o.iso2 == country2);
       }
       if (newSelectedCountry && newSelectedCountry.dialCode) {
         selectedCountry(newSelectedCountry);
-        formattedNumber(voby.$$(props.disableCountryCode) ? "" : formatNumber(newSelectedCountry.dialCode, newSelectedCountry));
+        formattedNumber(woby.$$(props.disableCountryCode) ? "" : formatNumber(newSelectedCountry.dialCode, newSelectedCountry));
       }
     };
     function updateFormattedNumber(value) {
-      if (voby.$$(value) === null) {
+      if (!woby.$$(value)) {
         selectedCountry(null);
         formattedNumber("");
         return;
       }
-      if (voby.$$(value) === "") {
+      if (woby.$$(value) === "") {
         formattedNumber("");
         return;
       }
-      let inputNumber2 = voby.$$(value).replace(/\D/g, "");
+      let inputNumber2 = woby.$$(value).replace(/\D/g, "");
       let newSelectedCountry;
-      if (voby.$$(selectedCountry) && startsWith$1(voby.$$(value), voby.$$(prefix) + voby.$$(selectedCountry).dialCode)) {
-        formattedNumber(formatNumber(inputNumber2, voby.$$(selectedCountry)));
+      if (woby.$$(selectedCountry) && startsWith$1(woby.$$(value), woby.$$(prefix) + woby.$$(selectedCountry).dialCode)) {
+        formattedNumber(formatNumber(inputNumber2, woby.$$(selectedCountry)));
       } else {
-        if (voby.$$(props.disableCountryGuess)) {
-          newSelectedCountry = voby.$$(selectedCountry);
+        if (woby.$$(props.disableCountryGuess)) {
+          newSelectedCountry = woby.$$(selectedCountry);
         } else {
-          newSelectedCountry = guessSelectedCountry(inputNumber2.substring(0, 6), voby.$$(country), voby.$$(onlyCountries), voby.$$(hiddenAreaCodes), voby.$$(props.enableAreaCodes), THIS) || voby.$$(selectedCountry);
+          newSelectedCountry = guessSelectedCountry(inputNumber2.substring(0, 6), woby.$$(country), woby.$$(onlyCountries), woby.$$(hiddenAreaCodes), woby.$$(props.enableAreaCodes), THIS) || woby.$$(selectedCountry);
         }
-        const dialCode2 = newSelectedCountry && startsWith$1(inputNumber2, voby.$$(prefix) + newSelectedCountry.dialCode) ? newSelectedCountry.dialCode : "";
+        const dialCode2 = newSelectedCountry && startsWith$1(inputNumber2, woby.$$(prefix) + newSelectedCountry.dialCode) ? newSelectedCountry.dialCode : "";
         formattedNumber(formatNumber(
-          (voby.$$(props.disableCountryCode) ? "" : dialCode2) + inputNumber2,
+          (woby.$$(props.disableCountryCode) ? "" : dialCode2) + inputNumber2,
           newSelectedCountry ? newSelectedCountry : void 0
         ));
         selectedCountry(newSelectedCountry);
@@ -3604,37 +3604,37 @@
     };
     const handleFlagDropdownClick = (e) => {
       e.preventDefault();
-      if (!voby.$$(showDropdown) && voby.$$(props.disabled))
+      if (!woby.$$(showDropdown) && woby.$$(props.disabled))
         return;
-      const allCountries = concatPreferredCountries(voby.$$(preferredCountries), voby.$$(onlyCountries));
-      const highlightCountryIndex_ = allCountries.findIndex((o) => o.dialCode === voby.$$(selectedCountry).dialCode && o.iso2 === voby.$$(selectedCountry).iso2);
+      const allCountries = concatPreferredCountries(woby.$$(preferredCountries), woby.$$(onlyCountries));
+      const highlightCountryIndex_ = allCountries.findIndex((o) => o.dialCode === woby.$$(selectedCountry).dialCode && o.iso2 === woby.$$(selectedCountry).iso2);
       highlightCountryIndex(highlightCountryIndex_);
-      showDropdown(!voby.$$(showDropdown));
+      showDropdown(!woby.$$(showDropdown));
     };
-    voby.useEffect(() => {
-      if (voby.$$(showDropdown)) {
-        scrollTo(getElement(voby.$$(highlightCountryIndex)), voby.$$(props.enableSearch), dropdownRef);
+    woby.useEffect(() => {
+      if (woby.$$(showDropdown)) {
+        scrollTo(getElement(woby.$$(highlightCountryIndex)), woby.$$(props.enableSearch), dropdownRef);
       }
     });
     const handleInput = (e) => {
       let { value } = e.target;
-      let formattedNumber_ = voby.$$(props.disableCountryCode) ? "" : voby.$$(prefix);
-      let newSelectedCountry = voby.$$(selectedCountry);
-      let freezeSelection_ = voby.$$(freezeSelection);
-      if (!voby.$$(props.countryCodeEditable)) {
-        const mainCode = newSelectedCountry.hasAreaCodes ? voby.$$(onlyCountries).find((o) => o.iso2 === newSelectedCountry.iso2 && o.mainCode).dialCode : newSelectedCountry.dialCode;
-        const updatedInput = voby.$$(prefix) + mainCode;
+      let formattedNumber_ = woby.$$(props.disableCountryCode) ? "" : woby.$$(prefix);
+      let newSelectedCountry = woby.$$(selectedCountry);
+      let freezeSelection_ = woby.$$(freezeSelection);
+      if (!woby.$$(props.countryCodeEditable)) {
+        const mainCode = newSelectedCountry.hasAreaCodes ? woby.$$(onlyCountries).find((o) => o.iso2 === newSelectedCountry.iso2 && o.mainCode).dialCode : newSelectedCountry.dialCode;
+        const updatedInput = woby.$$(prefix) + mainCode;
         if (value.slice(0, updatedInput.length) !== updatedInput)
           return;
       }
-      if (value === voby.$$(prefix)) {
-        onChange == null ? void 0 : onChange("", getCountryData(voby.$$(selectedCountry)), "");
+      if (value === woby.$$(prefix)) {
+        onChange == null ? void 0 : onChange("", getCountryData(woby.$$(selectedCountry)), "");
         return formattedNumber("");
       }
       if (value.replace(/\D/g, "").length > 15) {
-        value = value.replace(/\D/g, "").substring(0, Math.max(+voby.$$(props.enableLongNumbers), 15));
+        value = value.replace(/\D/g, "").substring(0, Math.max(+woby.$$(props.enableLongNumbers), 15));
       }
-      if (value === voby.$$(formattedNumber_))
+      if (value === woby.$$(formattedNumber_))
         return;
       if (e.preventDefault) {
         e.preventDefault();
@@ -3643,18 +3643,18 @@
       }
       if (value.length > 0) {
         const inpNum = value.replace(/\D/g, "");
-        if (voby.$$(props.disableCountryGuess)) {
-          newSelectedCountry = voby.$$(selectedCountry);
+        if (woby.$$(props.disableCountryGuess)) {
+          newSelectedCountry = woby.$$(selectedCountry);
         } else {
-          newSelectedCountry = guessSelectedCountry(inpNum.substring(0, 6), voby.$$(country), voby.$$(onlyCountries), voby.$$(hiddenAreaCodes), voby.$$(props.enableAreaCodes), THIS) || voby.$$(selectedCountry);
+          newSelectedCountry = guessSelectedCountry(inpNum.substring(0, 6), woby.$$(country), woby.$$(onlyCountries), woby.$$(hiddenAreaCodes), woby.$$(props.enableAreaCodes), THIS) || woby.$$(selectedCountry);
         }
         freezeSelection_ = false;
         formattedNumber_ = formatNumber(inpNum, newSelectedCountry);
-        newSelectedCountry = newSelectedCountry.dialCode ? newSelectedCountry : voby.$$(selectedCountry);
+        newSelectedCountry = newSelectedCountry.dialCode ? newSelectedCountry : woby.$$(selectedCountry);
       }
       const oldCaretPosition = e.target.selectionStart;
       let caretPosition = e.target.selectionStart;
-      const oldFormattedText = voby.$$(formattedNumber_);
+      const oldFormattedText = woby.$$(formattedNumber_);
       const diff = formattedNumber_.length - oldFormattedText.length;
       formattedNumber(formattedNumber_);
       freezeSelection(freezeSelection_);
@@ -3663,31 +3663,31 @@
       if (diff > 0) {
         caretPosition = caretPosition - diff;
       }
-      const lastChar = voby.$$(formattedNumber).charAt(voby.$$(formattedNumber).length - 1);
+      const lastChar = woby.$$(formattedNumber).charAt(woby.$$(formattedNumber).length - 1);
       if (lastChar == ")") {
-        voby.$$(numberInputRef).setSelectionRange(voby.$$(formattedNumber).length - 1, voby.$$(formattedNumber).length - 1);
-      } else if (caretPosition > 0 && oldFormattedText.length >= voby.$$(formattedNumber).length) {
-        voby.$$(numberInputRef).setSelectionRange(caretPosition, caretPosition);
+        woby.$$(numberInputRef).setSelectionRange(woby.$$(formattedNumber).length - 1, woby.$$(formattedNumber).length - 1);
+      } else if (caretPosition > 0 && oldFormattedText.length >= woby.$$(formattedNumber).length) {
+        woby.$$(numberInputRef).setSelectionRange(caretPosition, caretPosition);
       } else if (oldCaretPosition < oldFormattedText.length) {
-        voby.$$(numberInputRef).setSelectionRange(oldCaretPosition, oldCaretPosition);
+        woby.$$(numberInputRef).setSelectionRange(oldCaretPosition, oldCaretPosition);
       }
-      onChange == null ? void 0 : onChange(voby.$$(formattedNumber).replace(/[^0-9]+/g, ""), getCountryData(voby.$$(selectedCountry)), voby.$$(formattedNumber));
+      onChange == null ? void 0 : onChange(woby.$$(formattedNumber).replace(/[^0-9]+/g, ""), getCountryData(woby.$$(selectedCountry)), woby.$$(formattedNumber));
     };
     const handleInputClick = (e) => {
       var _a;
       showDropdown(false);
-      (_a = props.onClick) == null ? void 0 : _a.call(props, e, getCountryData(voby.$$(selectedCountry)));
+      (_a = props.onClick) == null ? void 0 : _a.call(props, e, getCountryData(woby.$$(selectedCountry)));
     };
     const handleDoubleClick = (e) => {
       const len = e.target.value.length;
       e.target.setSelectionRange(0, len);
     };
     const handleFlagItemClick = (country2, e) => {
-      const currentSelectedCountry = voby.$$(selectedCountry);
-      const newSelectedCountry = voby.$$(onlyCountries).find((o) => o == country2);
+      const currentSelectedCountry = woby.$$(selectedCountry);
+      const newSelectedCountry = woby.$$(onlyCountries).find((o) => o == country2);
       if (!newSelectedCountry)
         return;
-      const unformattedNumber = voby.$$(formattedNumber).replace(" ", "").replace("(", "").replace(")", "").replace("-", "");
+      const unformattedNumber = woby.$$(formattedNumber).replace(" ", "").replace("(", "").replace(")", "").replace("-", "");
       const newNumber = unformattedNumber.length > 1 ? unformattedNumber.replace(currentSelectedCountry.dialCode, newSelectedCountry.dialCode) : newSelectedCountry.dialCode;
       formattedNumber(formatNumber(newNumber.replace(/\D/g, ""), newSelectedCountry));
       showDropdown(false);
@@ -3695,57 +3695,57 @@
       freezeSelection(true);
       searchValue("");
     };
-    voby.useEffect(() => {
+    woby.useEffect(() => {
       var _a;
-      cursorToEnd(voby.$$(numberInputRef));
-      (_a = props.onChange) == null ? void 0 : _a.call(props, voby.$$(formattedNumber).replace(/[^0-9]+/g, ""), getCountryData(voby.$$(selectedCountry)), voby.$$(formattedNumber));
+      cursorToEnd(woby.$$(numberInputRef));
+      (_a = props.onChange) == null ? void 0 : _a.call(props, woby.$$(formattedNumber).replace(/[^0-9]+/g, ""), getCountryData(woby.$$(selectedCountry)), woby.$$(formattedNumber));
     });
     const handleInputFocus = (e) => {
       var _a;
-      if (voby.$$(numberInputRef)) {
-        if (voby.$$(numberInputRef).value === voby.$$(props.prefix) && voby.$$(selectedCountry) && !voby.$$(props.disableCountryCode)) {
-          formattedNumber(voby.$$(props.prefix) + voby.$$(selectedCountry).dialCode);
+      if (woby.$$(numberInputRef)) {
+        if (woby.$$(numberInputRef).value === woby.$$(props.prefix) && woby.$$(selectedCountry) && !woby.$$(props.disableCountryCode)) {
+          formattedNumber(woby.$$(props.prefix) + woby.$$(selectedCountry).dialCode);
         }
       }
       placeholder("");
-      (_a = props.onFocus) == null ? void 0 : _a.call(props, e, getCountryData(voby.$$(selectedCountry)));
-      voby.$$(props.jumpCursorToEnd) && setTimeout(() => cursorToEnd(voby.$$(numberInputRef)), 0);
+      (_a = props.onFocus) == null ? void 0 : _a.call(props, e, getCountryData(woby.$$(selectedCountry)));
+      woby.$$(props.jumpCursorToEnd) && setTimeout(() => cursorToEnd(woby.$$(numberInputRef)), 0);
     };
-    voby.useEffect(() => {
-      voby.$$(props.jumpCursorToEnd) && setTimeout(() => cursorToEnd(voby.$$(numberInputRef)), 0);
+    woby.useEffect(() => {
+      woby.$$(props.jumpCursorToEnd) && setTimeout(() => cursorToEnd(woby.$$(numberInputRef)), 0);
     });
     const handleInputBlur = (e) => {
       var _a;
       if (!e.target.value)
-        placeholder(voby.$$(props.placeholder));
-      (_a = props.onBlur) == null ? void 0 : _a.call(props, e, getCountryData(voby.$$(selectedCountry)));
+        placeholder(woby.$$(props.placeholder));
+      (_a = props.onBlur) == null ? void 0 : _a.call(props, e, getCountryData(woby.$$(selectedCountry)));
     };
     const handleInputCopy = (e) => {
-      if (!voby.$$(props.copyNumbersOnly))
+      if (!woby.$$(props.copyNumbersOnly))
         return;
       const text = window.getSelection().toString().replace(/[^0-9]+/g, "");
       e.clipboardData.setData("text/plain", text);
       e.preventDefault();
     };
     const getHighlightCountryIndex = (direction) => {
-      const highlightCountryIndex_ = voby.$$(highlightCountryIndex) + direction;
-      if (highlightCountryIndex_ < 0 || highlightCountryIndex_ >= voby.$$(onlyCountries).length + voby.$$(preferredCountries).length) {
+      const highlightCountryIndex_ = woby.$$(highlightCountryIndex) + direction;
+      if (highlightCountryIndex_ < 0 || highlightCountryIndex_ >= woby.$$(onlyCountries).length + woby.$$(preferredCountries).length) {
         return highlightCountryIndex_ - direction;
       }
-      if (voby.$$(props.enableSearch) && highlightCountryIndex_ > getSearchFilteredCountries().length)
+      if (woby.$$(props.enableSearch) && highlightCountryIndex_ > getSearchFilteredCountries().length)
         return 0;
       return highlightCountryIndex_;
     };
-    voby.useEffect(() => {
-      scrollTo(getElement(voby.$$(highlightCountryIndex)), voby.$$(props.enableSearch), dropdownRef, true);
+    woby.useEffect(() => {
+      scrollTo(getElement(woby.$$(highlightCountryIndex)), woby.$$(props.enableSearch), dropdownRef, true);
     });
     const handleKeydown = (e) => {
       const { target: { className } } = e;
-      if (className.includes("selected-flag") && e.which === keys.ENTER && !voby.$$(showDropdown))
+      if (className.includes("selected-flag") && e.which === keys.ENTER && !woby.$$(showDropdown))
         return handleFlagDropdownClick(e);
       if (className.includes("form-control") && (e.which === keys.ENTER || e.which === keys.ESC))
         return e.target.blur();
-      if (!voby.$$(showDropdown) || voby.$$(props.disabled))
+      if (!woby.$$(showDropdown) || woby.$$(props.disabled))
         return;
       if (className.includes("search-box")) {
         if (e.which !== keys.UP && e.which !== keys.DOWN && e.which !== keys.ENTER) {
@@ -3772,21 +3772,21 @@
           moveHighlight(-1);
           break;
         case keys.ENTER:
-          if (voby.$$(props.enableSearch)) {
-            handleFlagItemClick(getSearchFilteredCountries()[voby.$$(highlightCountryIndex)] || getSearchFilteredCountries()[0]);
+          if (woby.$$(props.enableSearch)) {
+            handleFlagItemClick(getSearchFilteredCountries()[woby.$$(highlightCountryIndex)] || getSearchFilteredCountries()[0]);
           } else {
-            handleFlagItemClick([...voby.$$(preferredCountries), ...voby.$$(onlyCountries)][voby.$$(highlightCountryIndex)]);
+            handleFlagItemClick([...woby.$$(preferredCountries), ...woby.$$(onlyCountries)][woby.$$(highlightCountryIndex)]);
           }
           break;
         case keys.ESC:
         case keys.TAB:
           showDropdown(false);
-          cursorToEnd(voby.$$(numberInputRef));
+          cursorToEnd(woby.$$(numberInputRef));
           break;
         default:
           if (e.which >= keys.A && e.which <= keys.Z || e.which === keys.SPACE) {
-            queryString(voby.$$(queryString) + String.fromCharCode(e.which));
-            voby.$$(debouncedQueryStingSearcher);
+            queryString(woby.$$(queryString) + String.fromCharCode(e.which));
+            woby.$$(debouncedQueryStingSearcher);
           }
       }
     };
@@ -3796,47 +3796,47 @@
       onKeyDown == null ? void 0 : onKeyDown(e);
     };
     const handleClickOutside = (e) => {
-      if (voby.$$(dropdownRef) && !voby.$$(dropdownContainerRef).contains(e.target)) {
-        voby.$$(showDropdown) && showDropdown(false);
+      if (woby.$$(dropdownRef) && !woby.$$(dropdownContainerRef).contains(e.target)) {
+        woby.$$(showDropdown) && showDropdown(false);
       }
     };
-    voby.useEffect(() => {
+    woby.useEffect(() => {
       var _a;
-      if (document.addEventListener && voby.$$(props.enableClickOutside)) {
+      if (document.addEventListener && woby.$$(props.enableClickOutside)) {
         document.addEventListener("mousedown", handleClickOutside);
       }
-      (_a = props.onMount) == null ? void 0 : _a.call(props, voby.$$(formattedNumber).replace(/[^0-9]+/g, ""), getCountryData(voby.$$(selectedCountry)), voby.$$(formattedNumber));
+      (_a = props.onMount) == null ? void 0 : _a.call(props, woby.$$(formattedNumber).replace(/[^0-9]+/g, ""), getCountryData(woby.$$(selectedCountry)), woby.$$(formattedNumber));
       return () => {
-        if (document.removeEventListener && voby.$$(props.enableClickOutside)) {
+        if (document.removeEventListener && woby.$$(props.enableClickOutside)) {
           document.removeEventListener("mousedown", handleClickOutside);
         }
       };
     });
-    voby.useEffect(() => {
-      updateCountry(voby.$$(props.country));
+    woby.useEffect(() => {
+      updateCountry(woby.$$(props.country));
     });
-    voby.useEffect(() => {
+    woby.useEffect(() => {
       updateFormattedNumber(props.value);
     });
     const handleSearchChange = (e) => {
       const { currentTarget: { value: searchValue2 } } = e;
       let highlightCountryIndex_ = 0;
-      if (searchValue2 === "" && voby.$$(selectedCountry)) {
-        highlightCountryIndex_ = concatPreferredCountries(voby.$$(preferredCountries), voby.$$(onlyCountries)).findIndex((o) => o == voby.$$(selectedCountry));
-        setTimeout(() => scrollTo(getElement(highlightCountryIndex_), voby.$$(props.enableSearch), dropdownRef), 100);
+      if (searchValue2 === "" && woby.$$(selectedCountry)) {
+        highlightCountryIndex_ = concatPreferredCountries(woby.$$(preferredCountries), woby.$$(onlyCountries)).findIndex((o) => o == woby.$$(selectedCountry));
+        setTimeout(() => scrollTo(getElement(highlightCountryIndex_), woby.$$(props.enableSearch), dropdownRef), 100);
       }
       highlightCountryIndex(highlightCountryIndex_);
     };
     const getSearchFilteredCountries = () => {
-      const allCountries = concatPreferredCountries(voby.$$(preferredCountries), voby.$$(onlyCountries));
-      const sanitizedSearchValue = voby.$$(searchValue).trim().toLowerCase().replace("+", "");
-      if (voby.$$(enableSearch) && sanitizedSearchValue) {
+      const allCountries = concatPreferredCountries(woby.$$(preferredCountries), woby.$$(onlyCountries));
+      const sanitizedSearchValue = woby.$$(searchValue).trim().toLowerCase().replace("+", "");
+      if (woby.$$(enableSearch) && sanitizedSearchValue) {
         if (/^\d+$/.test(sanitizedSearchValue)) {
           return allCountries.filter(({ dialCode: dialCode2 }) => [`${dialCode2}`].some((field) => field.toLowerCase().includes(sanitizedSearchValue)));
         } else {
           const iso2countries = allCountries.filter(({ iso2 }) => [`${iso2}`].some((field) => field.toLowerCase().includes(sanitizedSearchValue)));
           const searchedCountries = allCountries.filter(({ name, localName, iso2 }) => [`${name}`, `${localName || ""}`].some((field) => field.toLowerCase().includes(sanitizedSearchValue)));
-          scrollToTop(voby.$$(dropdownRef));
+          scrollToTop(woby.$$(dropdownRef));
           return [...new Set([].concat(iso2countries, searchedCountries))];
         }
       } else {
@@ -3846,7 +3846,7 @@
     const getCountryDropdownList = () => {
       const searchedCountries = getSearchFilteredCountries();
       let countryDropdownList = searchedCountries.map((country2, index) => {
-        const highlight = voby.$$(highlightCountryIndex) === index;
+        const highlight = woby.$$(highlightCountryIndex) === index;
         const itemClasses = [
           {
             country: true,
@@ -3872,7 +3872,7 @@
             "data-flag-key": `flag_no_${index}`,
             className: itemClasses,
             "data-dial-code": "1",
-            tabIndex: () => voby.$$(disableDropdown) ? "-1" : "0",
+            tabIndex: () => woby.$$(disableDropdown) ? "-1" : "0",
             "data-country-code": country2.iso2,
             onClick: (e) => handleFlagItemClick(country2),
             role: "option",
@@ -3880,18 +3880,18 @@
             children: [
               /* @__PURE__ */ jsxRuntime.jsx("div", { className: inputFlagClasses2 }),
               /* @__PURE__ */ jsxRuntime.jsx("span", { className: "country-name mr-1.5", children: getDropdownCountryName(country2) }),
-              /* @__PURE__ */ jsxRuntime.jsx("span", { className: "dial-code text-[#6b6b6b]", children: country2.format ? formatNumber(country2.dialCode, country2) : voby.$$(prefix) + country2.dialCode })
+              /* @__PURE__ */ jsxRuntime.jsx("span", { className: "dial-code text-[#6b6b6b]", children: country2.format ? formatNumber(country2.dialCode, country2) : woby.$$(prefix) + country2.dialCode })
             ]
           },
           `flag_no_${index}`
         );
       });
       const dashedLi = /* @__PURE__ */ jsxRuntime.jsx("li", { className: "divider mb-[5px] pb-[5px] border-b-[#ccc] border-b border-solid" }, "dashes");
-      voby.$$(preferredCountries).length > 0 && (!voby.$$(enableSearch) || voby.$$(enableSearch) && !voby.$$(searchValue).trim()) && countryDropdownList.splice(voby.$$(preferredCountries).length, 0, dashedLi);
+      woby.$$(preferredCountries).length > 0 && (!woby.$$(enableSearch) || woby.$$(enableSearch) && !woby.$$(searchValue).trim()) && countryDropdownList.splice(woby.$$(preferredCountries).length, 0, dashedLi);
       const dropDownClasses = [
         {
           "country-list": true,
-          "hide hidden": () => !voby.$$(showDropdown)
+          "hide hidden": () => !woby.$$(showDropdown)
         },
         props.dropdownClass,
         `z-[1] absolute shadow-[1px_2px_18px_rgba(0,0,0,0.25)] bg-[white] w-[300px] max-h-[220px] overflow-y-scroll -ml-px mr-0 mt-0 mb-2.5 p-0 rounded-[7px]
@@ -3901,7 +3901,7 @@
         "ul",
         {
           ref: (el) => {
-            !voby.$$(enableSearch) && el && el.focus();
+            !woby.$$(enableSearch) && el && el.focus();
             return dropdownRef(el);
           },
           className: dropDownClasses,
@@ -3909,7 +3909,7 @@
           role: "listbox",
           tabIndex: "0",
           children: [
-            voby.$$(enableSearch) && /* @__PURE__ */ jsxRuntime.jsxs(
+            () => woby.$$(enableSearch) && /* @__PURE__ */ jsxRuntime.jsxs(
               "li",
               {
                 className: [
@@ -3920,13 +3920,13 @@
                   "z-[2] sticky bg-white pl-2.5 pr-0 pt-2.5 pb-1.5 top-0"
                 ],
                 children: [
-                  !voby.$$(disableSearchIcon) && /* @__PURE__ */ jsxRuntime.jsx(
+                  !woby.$$(disableSearchIcon) && /* @__PURE__ */ jsxRuntime.jsx(
                     "span",
                     {
                       className: [
                         {
                           "search-emoji": true,
-                          [`${voby.$$(searchClass)}-emoji`]: voby.$$(searchClass)
+                          [`${() => woby.$$(searchClass)}-emoji`]: woby.$$(searchClass)
                         },
                         "hidden text-[15px]"
                       ],
@@ -3941,7 +3941,7 @@
                       className: [
                         {
                           "search-box": true,
-                          [`${voby.$$(searchClass)}-box`]: voby.$$(searchClass)
+                          [`${() => woby.$$(searchClass)}-box`]: woby.$$(searchClass)
                         },
                         "border text-[15px] leading-[15px] ml-1.5 pt-[3px] pb-[5px] px-2 rounded-[3px] border-solid border-[#cacaca] hover:border-[#505050]"
                       ],
@@ -3949,7 +3949,7 @@
                       type: "search",
                       placeholder: searchPlaceholder,
                       autoFocus: true,
-                      autoComplete: () => voby.$$(autocompleteSearch) ? "on" : "off",
+                      autoComplete: () => woby.$$(autocompleteSearch) ? "on" : "off",
                       value: searchValue,
                       onChange: handleSearchChange
                     }
@@ -3962,18 +3962,17 @@
         }
       );
     };
-    const isValidValue = voby.$();
-    const errorMessage = voby.$();
-    voby.useEffect(() => {
-      console.log(voby.$$(formattedNumber), voby.$$(selectedCountry));
-      if (voby.isObservable(isValid)) {
-        isValidValue(voby.$$(isValid));
+    const isValidValue = woby.$();
+    const errorMessage = woby.$();
+    woby.useEffect(() => {
+      if (woby.isObservable(isValid)) {
+        isValidValue(woby.$$(isValid));
       } else if (typeof isValid === "function") {
-        const isValidProcessed = isValid(voby.$$(formattedNumber).replace(/\D/g, ""), voby.$$(selectedCountry), voby.$$(onlyCountries), voby.$$(hiddenAreaCodes));
+        const isValidProcessed = isValid(woby.$$(formattedNumber).replace(/\D/g, ""), woby.$$(selectedCountry), woby.$$(onlyCountries), woby.$$(hiddenAreaCodes));
         if (typeof isValidProcessed === "boolean") {
           isValidValue(isValidProcessed);
-          if (voby.$$(isValidValue) === false)
-            errorMessage(voby.$$(defaultErrorMessage));
+          if (woby.$$(isValidValue) === false)
+            errorMessage(woby.$$(defaultErrorMessage));
         } else {
           isValidValue(false);
           errorMessage(isValidProcessed);
@@ -3988,8 +3987,8 @@
     const inputClasses = [
       {
         "form-control": true,
-        'invalid-number border border-solid border-[#f44336] focus:shadow-[0_0_0_1px_#f44336] [&+div]:before:content-["Error"] [&+div]:before:hidden [&+div]:before:text-[#f44336] [&+div]:before:w-[27px]': () => !voby.$$(isValidValue),
-        "open": voby.$$(showDropdown),
+        'invalid-number border border-solid border-[#f44336] focus:shadow-[0_0_0_1px_#f44336] [&+div]:before:content-["Error"] [&+div]:before:hidden [&+div]:before:text-[#f44336] [&+div]:before:w-[27px]': () => !woby.$$(isValidValue),
+        "open": woby.$$(showDropdown),
         "here": true
       },
       props.inputClass,
@@ -4002,7 +4001,7 @@
     const selectedFlagClasses = [
       {
         "selected-flag": true,
-        "open": voby.$$(showDropdown)
+        "open": woby.$$(showDropdown)
       },
       "relative w-[52px] h-full pl-[11px] pr-0 py-0 rounded-[3px_0_0_3px] [outline:none]",
       // `[&:focus_.arrow]:border-t-[5px] [&:focus_.arrow]:border-t-[#1976d2] [&:focus_.arrow]:border-x-4 [&:focus_.arrow]:border-solid`,
@@ -4013,13 +4012,13 @@
       {
         "flag-dropdown absolute p-0 rounded-[3px_0_0_3px] inset-y-0 hover:cursor-pointer focus:cursor-pointer": true,
         'invalid-number border border-solid border-[#f44336] focus:shadow-[0_0_0_1px_#f44336] [&+div]:before:content-["Error"] [&+div]:before:hidden [&+div]:before:text-[#f44336] [&+div]:before:w-[27px]': () => !isValidValue,
-        "open z-[2]": voby.$$(showDropdown)
+        "open z-[2]": woby.$$(showDropdown)
       },
       props.buttonClass
     ];
     const inputFlagClasses = ["flag w-[25px] h-5 bg-no-repeat", () => {
       var _a;
-      return flag[(_a = voby.$$(selectedCountry)) == null ? void 0 : _a.iso2];
+      return flag[(_a = woby.$$(selectedCountry)) == null ? void 0 : _a.iso2];
     }];
     return /* @__PURE__ */ jsxRuntime.jsxs(
       "div",
@@ -4028,8 +4027,8 @@
         style: props.style || props.containerStyle,
         onKeyDown: handleKeydown,
         children: [
-          voby.$$(specialLabel) && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]", children: specialLabel }),
-          voby.$$(errorMessage) && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]", children: errorMessage }),
+          () => woby.$$(specialLabel) && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]", children: specialLabel }),
+          () => woby.$$(errorMessage) && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]", children: errorMessage }),
           /* @__PURE__ */ jsxRuntime.jsx(
             "input",
             {
@@ -4063,17 +4062,17 @@
               style: props.buttonStyle,
               ref: dropdownContainerRef,
               children: [
-                voby.$$(renderStringAsFlag) ? /* @__PURE__ */ jsxRuntime.jsx("div", { className: selectedFlagClasses, children: renderStringAsFlag }) : /* @__PURE__ */ jsxRuntime.jsx(
+                () => woby.$$(renderStringAsFlag) ? /* @__PURE__ */ jsxRuntime.jsx("div", { className: selectedFlagClasses, children: renderStringAsFlag }) : /* @__PURE__ */ jsxRuntime.jsx(
                   "div",
                   {
-                    onClick: voby.$$(disableDropdown) ? void 0 : handleFlagDropdownClick,
+                    onClick: () => woby.$$(disableDropdown) ? void 0 : handleFlagDropdownClick,
                     className: [selectedFlagClasses],
-                    title: () => voby.$$(selectedCountry) ? `${voby.$$(selectedCountry).localName || voby.$$(selectedCountry).name}: + ${voby.$$(selectedCountry).dialCode}` : "",
-                    tabIndex: voby.$$(disableDropdown) ? "-1" : "0",
+                    title: () => woby.$$(selectedCountry) ? `${woby.$$(selectedCountry).localName || woby.$$(selectedCountry).name}: + ${woby.$$(selectedCountry).dialCode}` : "",
+                    tabIndex: () => woby.$$(disableDropdown) ? "-1" : "0",
                     role: "button",
                     "aria-haspopup": "listbox",
-                    "aria-expanded": () => voby.$$(showDropdown) ? true : void 0,
-                    children: /* @__PURE__ */ jsxRuntime.jsx("div", { className: inputFlagClasses, children: !voby.$$(disableDropdown) && /* @__PURE__ */ jsxRuntime.jsx("div", { className: arrowClasses }) })
+                    "aria-expanded": () => woby.$$(showDropdown) ? true : void 0,
+                    children: /* @__PURE__ */ jsxRuntime.jsx("div", { className: inputFlagClasses, children: !woby.$$(disableDropdown) && /* @__PURE__ */ jsxRuntime.jsx("div", { className: arrowClasses }) })
                   }
                 ),
                 showDropdown && getCountryDropdownList()

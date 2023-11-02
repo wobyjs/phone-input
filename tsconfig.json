@@ -13,7 +13,7 @@
         "inlineSourceMap": false,
         "inlineSources": false,
         "jsx": "react-jsx",
-        "jsxImportSource": "voby",
+        "jsxImportSource": "woby",
         "lib": [
             "dom",
             "esnext",

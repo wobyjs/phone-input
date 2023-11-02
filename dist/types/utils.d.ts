@@ -1,4 +1,4 @@
-import { Observable } from 'voby';
+import { Observable } from 'woby';
 import { Country } from './Country';
 export declare const scrollTo: (country: HTMLElement, enableSearch: boolean, container?: Observable<HTMLElement> /**dropdownRef */, middle?: boolean) => void;
 export declare const scrollToTop: (container: any) => void;

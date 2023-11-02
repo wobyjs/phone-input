@@ -7,17 +7,17 @@ const config = defineConfig({
         minify: false,
         lib: {
             entry: ["./src/index.tsx"],
-            name: "voby-modal",
+            name: "woby-modal",
             formats: ['cjs', 'es', 'umd'],
             fileName: (format: string, entryName: string) => `${entryName}.${format}.js`
         },
         sourcemap: true,
         rollupOptions: {
-            external: ['voby', 'oby', 'voby/jsx-runtime'],
+            external: ['woby', 'woby/jsx-runtime', 'oby'],
             output: {
                 globals: {
-                    'voby': 'voby',
-                    'voby/jsx-runtime': 'voby/jsx-runtime',
+                    'woby': 'woby',
+                    'woby/jsx-runtime': 'woby/jsx-runtime',
                 }
             }
         }

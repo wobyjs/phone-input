@@ -1,5 +1,5 @@
-import { jsxs, jsx } from "voby/jsx-runtime";
-import { $$, $, isObservable, useEffect } from "voby";
+import { jsxs, jsx } from "woby/jsx-runtime";
+import { $$, $, isObservable, useEffect } from "woby";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -3570,7 +3570,7 @@ const PhoneInput = (propertis) => {
     }
   };
   function updateFormattedNumber(value) {
-    if ($$(value) === null) {
+    if (!$$(value)) {
       selectedCountry(null);
       formattedNumber("");
       return;
@@ -3907,7 +3907,7 @@ const PhoneInput = (propertis) => {
         role: "listbox",
         tabIndex: "0",
         children: [
-          $$(enableSearch) && /* @__PURE__ */ jsxs(
+          () => $$(enableSearch) && /* @__PURE__ */ jsxs(
             "li",
             {
               className: [
@@ -3924,7 +3924,7 @@ const PhoneInput = (propertis) => {
                     className: [
                       {
                         "search-emoji": true,
-                        [`${$$(searchClass)}-emoji`]: $$(searchClass)
+                        [`${() => $$(searchClass)}-emoji`]: $$(searchClass)
                       },
                       "hidden text-[15px]"
                     ],
@@ -3939,7 +3939,7 @@ const PhoneInput = (propertis) => {
                     className: [
                       {
                         "search-box": true,
-                        [`${$$(searchClass)}-box`]: $$(searchClass)
+                        [`${() => $$(searchClass)}-box`]: $$(searchClass)
                       },
                       "border text-[15px] leading-[15px] ml-1.5 pt-[3px] pb-[5px] px-2 rounded-[3px] border-solid border-[#cacaca] hover:border-[#505050]"
                     ],
@@ -3963,7 +3963,6 @@ const PhoneInput = (propertis) => {
   const isValidValue = $();
   const errorMessage = $();
   useEffect(() => {
-    console.log($$(formattedNumber), $$(selectedCountry));
     if (isObservable(isValid)) {
       isValidValue($$(isValid));
     } else if (typeof isValid === "function") {
@@ -4026,8 +4025,8 @@ const PhoneInput = (propertis) => {
       style: props.style || props.containerStyle,
       onKeyDown: handleKeydown,
       children: [
-        $$(specialLabel) && /* @__PURE__ */ jsx("div", { className: "special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]", children: specialLabel }),
-        $$(errorMessage) && /* @__PURE__ */ jsx("div", { className: "invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]", children: errorMessage }),
+        () => $$(specialLabel) && /* @__PURE__ */ jsx("div", { className: "special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]", children: specialLabel }),
+        () => $$(errorMessage) && /* @__PURE__ */ jsx("div", { className: "invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]", children: errorMessage }),
         /* @__PURE__ */ jsx(
           "input",
           {
@@ -4061,13 +4060,13 @@ const PhoneInput = (propertis) => {
             style: props.buttonStyle,
             ref: dropdownContainerRef,
             children: [
-              $$(renderStringAsFlag) ? /* @__PURE__ */ jsx("div", { className: selectedFlagClasses, children: renderStringAsFlag }) : /* @__PURE__ */ jsx(
+              () => $$(renderStringAsFlag) ? /* @__PURE__ */ jsx("div", { className: selectedFlagClasses, children: renderStringAsFlag }) : /* @__PURE__ */ jsx(
                 "div",
                 {
-                  onClick: $$(disableDropdown) ? void 0 : handleFlagDropdownClick,
+                  onClick: () => $$(disableDropdown) ? void 0 : handleFlagDropdownClick,
                   className: [selectedFlagClasses],
                   title: () => $$(selectedCountry) ? `${$$(selectedCountry).localName || $$(selectedCountry).name}: + ${$$(selectedCountry).dialCode}` : "",
-                  tabIndex: $$(disableDropdown) ? "-1" : "0",
+                  tabIndex: () => $$(disableDropdown) ? "-1" : "0",
                   role: "button",
                   "aria-haspopup": "listbox",
                   "aria-expanded": () => $$(showDropdown) ? true : void 0,

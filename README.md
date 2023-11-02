@@ -142,7 +142,7 @@ import 'react-phone-input-2/lib/style.css'
 
 ```tsx
 import './index.css'
-import { $, render } from 'voby'
+import { $, render } from 'woby'
 import { PhoneInput } from '../../src/index'
 import '../../src/style/material.css'
 

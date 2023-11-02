@@ -1,4 +1,4 @@
-import { $, $$, Observable, CSSProperties, type JSX, useEffect, ObservableMaybe, isObservable } from 'voby'
+import { $, $$, Observable, CSSProperties, type JSX, useEffect, ObservableMaybe, isObservable } from 'woby'
 import debounce from 'lodash.debounce'
 import memoize from 'lodash.memoize'
 import reduce from 'lodash.reduce'
@@ -320,7 +320,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
     }
 
     function updateFormattedNumber(value: Observable<string>) {
-        if ($$(value) === null) {
+        if (!$$(value)) {
             selectedCountry(null)
             formattedNumber('')
             return
@@ -731,7 +731,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                 role='listbox'
                 tabIndex='0'
             >
-                {$$(enableSearch) && (
+                {() => $$(enableSearch) && (
                     <li
                         className={[{
                             search: true,
@@ -743,7 +743,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                             <span
                                 className={[{
                                     'search-emoji': true,
-                                    [`${$$(searchClass)}-emoji`]: $$(searchClass),
+                                    [`${() => $$(searchClass)}-emoji`]: $$(searchClass),
                                 },
                                     'hidden text-[15px]'
                                 ]}
@@ -755,7 +755,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                         <input
                             className={[{
                                 'search-box': true,
-                                [`${$$(searchClass)}-box`]: $$(searchClass),
+                                [`${() => $$(searchClass)}-box`]: $$(searchClass),
                             },
                                 'border text-[15px] leading-[15px] ml-1.5 pt-[3px] pb-[5px] px-2 rounded-[3px] border-solid border-[#cacaca] hover:border-[#505050]'
                             ]}
@@ -785,7 +785,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
     const errorMessage = $<string>()
 
     useEffect(() => {
-        console.log($$(formattedNumber), $$(selectedCountry))
+        // console.log($$(formattedNumber), $$(selectedCountry))
         if (isObservable(isValid as any)) {
             isValidValue($$(isValid as ObservableMaybe<boolean>))
         } else if (typeof isValid === 'function') {
@@ -842,8 +842,8 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
             className={[containerClasses, props.className]}
             style={props.style || props.containerStyle}
             onKeyDown={handleKeydown}>
-            {$$(specialLabel) && <div className='special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]'>{specialLabel}</div>}
-            {$$(errorMessage) && <div className='invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]'>{errorMessage}</div>}
+            {() => $$(specialLabel) && <div className='special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]'>{specialLabel}</div>}
+            {() => $$(errorMessage) && <div className='invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]'>{errorMessage}</div>}
             <input
                 className={inputClasses}
                 style={props.inputStyle}
@@ -875,14 +875,14 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                 style={props.buttonStyle}
                 ref={dropdownContainerRef}
             >
-                {$$(renderStringAsFlag) ?
+                {() => $$(renderStringAsFlag) ?
                     <div className={selectedFlagClasses}>{renderStringAsFlag}</div>
                     :
                     <div
-                        onClick={$$(disableDropdown) ? undefined : handleFlagDropdownClick}
+                        onClick={() => $$(disableDropdown) ? undefined : handleFlagDropdownClick}
                         className={[selectedFlagClasses]}
                         title={() => $$(selectedCountry) ? `${$$(selectedCountry).localName || $$(selectedCountry).name}: + ${$$(selectedCountry).dialCode}` : ''}
-                        tabIndex={$$(disableDropdown) ? '-1' : '0'}
+                        tabIndex={() => $$(disableDropdown) ? '-1' : '0'}
                         role='button'
                         aria-haspopup="listbox"
                         aria-expanded={() => $$(showDropdown) ? true : undefined}
