@@ -1,6 +1,6 @@
 {
     "name": "woby-phone-input-2",
-    "version": "2.15.2",
+    "version": "2.15.3",
     "description": "A woby component to format phone numbers",
     "typings": "index.d.mts",
     "main": "./dist/index.cjs.js",
