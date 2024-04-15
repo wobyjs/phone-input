@@ -12,3 +12,4 @@ export default class CountryData {
     getCustomAreas: (country: Country, areaCodes: string[]) => Country[];
     excludeCountries: (onlyCountries: Country[], excludedCountries: string[]) => Country[];
 }
+//# sourceMappingURL=CountryData.d.ts.map

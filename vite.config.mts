@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
-import dts from 'vite-plugin-dts'
+// import dts from 'vite-plugin-dts'
 
 const config = defineConfig({
     build: {
@@ -8,12 +8,12 @@ const config = defineConfig({
         lib: {
             entry: ["./src/index.tsx"],
             name: "woby-modal",
-            formats: ['cjs', 'es', 'umd'],
+            formats: [/*'cjs', '*/'es'/*, 'umd'*/],
             fileName: (format: string, entryName: string) => `${entryName}.${format}.js`
         },
         sourcemap: true,
         rollupOptions: {
-            external: ['woby', 'woby/jsx-runtime', 'oby'],
+            external: ['woby', 'woby/jsx-runtime', 'oby', 'woby-styled',],
             output: {
                 globals: {
                     'woby': 'woby',
@@ -26,7 +26,7 @@ const config = defineConfig({
         jsx: 'automatic',
     },
     plugins: [
-        dts({ entryRoot: './src', outputDir: './dist/types' })
+        // dts({ entryRoot: './src', outputDir: './dist/types' })
     ],
     resolve: {
         alias: {

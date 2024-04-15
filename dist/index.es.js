@@ -1037,7 +1037,6 @@ function startsWith(string, target, position) {
 }
 var lodash_startswith = startsWith;
 const startsWith$1 = /* @__PURE__ */ getDefaultExportFromCjs(lodash_startswith);
-const output = "";
 const flag = {
   ad: "bg-[-48px_-24px]",
   ae: "bg-[-72px_-24px]",

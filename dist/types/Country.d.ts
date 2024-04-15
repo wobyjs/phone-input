@@ -11,3 +11,4 @@ export interface Country {
     priority?: number;
     regions?: string[];
 }
+//# sourceMappingURL=Country.d.ts.map

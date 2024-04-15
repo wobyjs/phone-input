@@ -2,12 +2,16 @@
     "name": "woby-phone-input-2",
     "version": "2.15.2",
     "description": "A woby component to format phone numbers",
-    "typings": "index.d.ts",
+    "typings": "index.d.mts",
     "main": "./dist/index.cjs.js",
     "module": "./dist/index.es.js",
     "browser": "./dist/index.umd.js",
-    "types": "./dist/types/index.d.ts",
+    "types": "./dist/types/index.d.mts",
     "scripts": {
+        "git": "git add . && git commit -m \"Bump version\" && git push",
+        "bump": "pnpm version patch",
+        "npmjs": "pnpm publish",
+        "release": "run-s -c git bump npmjs",
         "test": "jest",
         "start": "TARGET=dev_js NODE_ENV=development webpack-dev-server --progress",
         "start:css": "TARGET=dev_css NODE_ENV=development webpack-dev-server --progress",
@@ -21,13 +25,13 @@
         "//release": "npm run build && npm run lib && npm publish",
         "css:watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
         "css": "tailwindcss -i ./src/input.css -o ./dist/output.css",
-        "declaration": "tsc --build --force --declaration --emitDeclarationOnly --verbose",
-        "declaration:watch": "tsc --build --force --declaration --emitDeclarationOnly --verbose --watch",
+        "declaration": "tsc --build --force --declaration --emitDeclarationOnly --declarationMap  --verbose",
+        "declaration:watch": "tsc --build --force --declaration --emitDeclarationOnly --declarationMap  --verbose --watch",
         "watch": "run-p build:watch css:watch",
-        "build": "run-s css build:vite css",
-        "build:web": "vite build --config=vite.config.web.ts --force --mode production",
-        "web": "vite preview --config=vite.config.web.ts --host",
-        "dev:only": "vite --config=vite.config.web.ts --force --mode dev --host",
+        "build": "run-s css build:vite css declaration",
+        "build:web": "vite build --config=vite.config.web.mts --force --mode production",
+        "web": "vite preview --config=vite.config.web.mts --host",
+        "dev:only": "vite --config=vite.config.web.mts --force --mode dev --host",
         "dev": "run-p css:watch dev:only",
         "build:vite": "vite build",
         "build:watch": "vite build --watch",
@@ -57,7 +61,7 @@
         "lib",
         "LICENSE",
         "README.md",
-        "index.d.ts"
+        "index.d.mts"
     ],
     "license": "MIT",
     "bugs": {
@@ -65,18 +69,18 @@
     },
     "homepage": "https://github.com/wongchichong/woby-phone-input-2",
     "devDependencies": {
-        "tailwindcss": "^3.3.3",
-        "vite": "^4.4.11",
-        "vite-plugin-dts": "^2.3.0"
+        "tailwindcss": "^3.4.3",
+        "vite": "^5.2.8"
     },
     "peerDependencies": {
-        "woby": "workspace:^",
-        "woby-styled": "workspace:^"
+        "woby": "workspace:../woby",
+        "woby-styled": "workspace:*"
     },
     "dependencies": {
         "lodash.debounce": "^4.0.8",
         "lodash.memoize": "^4.1.2",
         "lodash.reduce": "^4.6.0",
-        "lodash.startswith": "^4.2.1"
+        "lodash.startswith": "^4.2.1",
+        "typescript": "5.4.5"
     }
 }

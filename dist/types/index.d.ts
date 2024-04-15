@@ -1,4 +1,6 @@
 import { Observable, CSSProperties, type JSX, ObservableMaybe } from 'woby';
+import './utils/prototypes';
+import '../dist/output.css';
 import { Country } from './Country';
 import { getCountryData } from './utils';
 interface PhoneInputProps {
@@ -66,3 +68,4 @@ interface PhoneInputProps {
 }
 export declare const PhoneInput: (propertis: PhoneInputProps) => any;
 export {};
+//# sourceMappingURL=index.d.ts.map

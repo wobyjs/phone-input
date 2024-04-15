@@ -241,3 +241,4 @@ export declare const flag: {
     zm: string;
     zw: string;
 };
+//# sourceMappingURL=high-res-flags.d.ts.map
