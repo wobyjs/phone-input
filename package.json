@@ -2,11 +2,11 @@
     "name": "woby-phone-input-2",
     "version": "2.15.4",
     "description": "A woby component to format phone numbers",
-    "typings": "index.d.mts",
+    "typings": "index.d.ts",
     "main": "./dist/index.cjs.js",
     "module": "./dist/index.es.js",
     "browser": "./dist/index.umd.js",
-    "types": "./dist/types/index.d.mts",
+    "types": "./dist/types/index.d.ts",
     "scripts": {
         "git": "git add . && git commit -m \"Bump version\" && git push",
         "bump": "pnpm version patch",
@@ -61,7 +61,7 @@
         "lib",
         "LICENSE",
         "README.md",
-        "index.d.mts"
+        "index.d.ts"
     ],
     "license": "MIT",
     "bugs": {
