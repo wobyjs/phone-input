@@ -692,22 +692,22 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                     ref={el => THIS[`flag_no_${index}`] = el}
                     key={`flag_no_${index}`}
                     data-flag-key={`flag_no_${index}`}
-                    className={itemClasses}
+                    class={itemClasses}
                     data-dial-code='1'
-                    tabIndex={() => $$(disableDropdown) ? '-1' : '0'}
+                    tabIndex={() => $$(disableDropdown) ? -1 : 0}
                     data-country-code={country.iso2}
                     onClick={e => handleFlagItemClick(country, e)}
                     role='option'
                     {...highlight ? { "aria-selected": true } : {}}
                 >
-                    <div className={inputFlagClasses} />
-                    <span className='country-name mr-1.5'>{getDropdownCountryName(country)}</span>
-                    <span className='dial-code text-[#6b6b6b]'>{country.format ? formatNumber(country.dialCode, country) : ($$(prefix) + country.dialCode)}</span>
+                    <div class={inputFlagClasses} />
+                    <span class='country-name mr-1.5'>{getDropdownCountryName(country)}</span>
+                    <span class='dial-code text-[#6b6b6b]'>{country.format ? formatNumber(country.dialCode, country) : ($$(prefix) + country.dialCode)}</span>
                 </li>
             )
         })
 
-        const dashedLi = (<li key={'dashes'} className='divider mb-[5px] pb-[5px] border-b-[#ccc] border-b border-solid' />);
+        const dashedLi = (<li key={'dashes'} class='divider mb-[5px] pb-[5px] border-b-[#ccc] border-b border-solid' />);
         // let's insert a dashed line in between preffered countries and the rest
         ($$(preferredCountries).length > 0) && (!$$(enableSearch) || $$(enableSearch) && !$$(searchValue).trim()) &&
             countryDropdownList.splice($$(preferredCountries).length, 0, dashedLi)
@@ -726,14 +726,14 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                     !$$(enableSearch) && el && el.focus()
                     return dropdownRef(el)
                 }}
-                className={dropDownClasses}
+                class={dropDownClasses}
                 style={props.dropdownStyle}
                 role='listbox'
-                tabIndex='0'
+                tabIndex={0}
             >
                 {() => $$(enableSearch) && (
                     <li
-                        className={[{
+                        class={[{
                             search: true,
                         },
                             searchClass,
@@ -741,9 +741,9 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                         ]}>
                         {!$$(disableSearchIcon) &&
                             <span
-                                className={[{
+                                class={[{
                                     'search-emoji': true,
-                                    [`${() => $$(searchClass)}-emoji`]: $$(searchClass),
+                                    [`${() => $$(searchClass)}-emoji`]: !!$$(searchClass),
                                 },
                                     'hidden text-[15px]'
                                 ]}
@@ -753,9 +753,9 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                                 &#128270;
                             </span>}
                         <input
-                            className={[{
+                            class={[{
                                 'search-box': true,
-                                [`${() => $$(searchClass)}-box`]: $$(searchClass),
+                                [`${() => $$(searchClass)}-box`]: !!$$(searchClass),
                             },
                                 'border text-[15px] leading-[15px] ml-1.5 pt-[3px] pb-[5px] px-2 rounded-[3px] border-solid border-[#cacaca] hover:border-[#505050]'
                             ]}
@@ -772,7 +772,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                 {countryDropdownList.length > 0
                     ? countryDropdownList
                     : (
-                        <li className='no-entries-message opacity-70 pt-[7px] pb-[11px] px-2.5'>
+                        <li class='no-entries-message opacity-70 pt-[7px] pb-[11px] px-2.5'>
                             <span>{searchNotFound}</span>
                         </li>
                     )}
@@ -839,17 +839,17 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
 
     return (
         <div
-            className={[containerClasses, props.className]}
+            class={[containerClasses, props.className]}
             style={props.style || props.containerStyle}
             onKeyDown={handleKeydown}>
-            {() => $$(specialLabel) && <div className='special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]'>{specialLabel}</div>}
-            {() => $$(errorMessage) && <div className='invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]'>{errorMessage}</div>}
+            {() => $$(specialLabel) && <div class='special-label absolute z-[1] top-[-7px] block bg-[white] text-[13px] whitespace-nowrap px-[5px] py-0 left-[25px]'>{specialLabel}</div>}
+            {() => $$(errorMessage) && <div class='invalid-number-message absolute z-[1] text-[13px] top-[-7px] bg-white text-[#de0000] px-[5px] py-0 left-[25px]'>{errorMessage}</div>}
             <input
-                className={inputClasses}
+                class={inputClasses}
                 style={props.inputStyle}
                 onChange={handleInput}
                 onClick={handleInputClick}
-                onDoubleClick={handleDoubleClick}
+                onDblClick={handleDoubleClick}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 onCopy={handleInputCopy}
@@ -870,25 +870,25 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
             />
 
             <div
-                className={[flagViewClasses, '[&:disabled+.flag-dropdown:hover]:cursor-default [&:disabled+.flag-dropdown:hover]:border-[#CACACA]',
+                class={[flagViewClasses, '[&:disabled+.flag-dropdown:hover]:cursor-default [&:disabled+.flag-dropdown:hover]:border-[#CACACA]',
                     '[&:disabled+.flag-dropdown:hover.selected-flag]:bg-transparent']}
                 style={props.buttonStyle}
                 ref={dropdownContainerRef}
             >
                 {() => $$(renderStringAsFlag) ?
-                    <div className={selectedFlagClasses}>{renderStringAsFlag}</div>
+                    <div class={selectedFlagClasses}>{renderStringAsFlag}</div>
                     :
                     <div
                         onClick={() => $$(disableDropdown) ? undefined : handleFlagDropdownClick}
-                        className={[selectedFlagClasses]}
+                        class={[selectedFlagClasses]}
                         title={() => $$(selectedCountry) ? `${$$(selectedCountry).localName || $$(selectedCountry).name}: + ${$$(selectedCountry).dialCode}` : ''}
-                        tabIndex={() => $$(disableDropdown) ? '-1' : '0'}
+                        tabIndex={() => $$(disableDropdown) ? -1 : 0}
                         role='button'
                         aria-haspopup="listbox"
                         aria-expanded={() => $$(showDropdown) ? true : undefined}
                     >
-                        <div className={inputFlagClasses}>
-                            {!$$(disableDropdown) && <div className={arrowClasses}></div>}
+                        <div class={inputFlagClasses}>
+                            {!$$(disableDropdown) && <div class={arrowClasses}></div>}
                         </div>
                     </div>}
 

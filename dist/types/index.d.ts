@@ -66,6 +66,6 @@ interface PhoneInputProps {
     specialLabel?: ObservableMaybe<string>;
     style?: JSX.Style;
 }
-export declare const PhoneInput: (propertis: PhoneInputProps) => any;
+export declare const PhoneInput: (propertis: PhoneInputProps) => JSX.Child;
 export {};
 //# sourceMappingURL=index.d.ts.map
