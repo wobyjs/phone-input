@@ -1,24 +1,24 @@
-# Woby-Phone-Input-2
+# @woby/phone-input
 Highly customizable phone input component with auto formatting.
 
-Port from [React-Phone-Input-2](https://github.com/bl00mber/woby-phone-input-2)
+Port from [React-Phone-Input-2](https://github.com/bl00mber/react-phone-input-2)
 
-[![npm version](https://img.shields.io/npm/v/woby-phone-input-2.svg?style=flat)](https://www.npmjs.com/package/woby-phone-input-2)
-[![npm downloads](https://img.shields.io/npm/dm/woby-phone-input-2.svg?style=flat)](https://www.npmjs.com/package/woby-phone-input-2)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/bl00mber/woby-phone-input-2#contributing)
-[![travis build](https://travis-ci.org/bl00mber/woby-phone-input-2.svg?branch=master)](https://travis-ci.org/bl00mber/woby-phone-input-2)
+[![npm version](https://img.shields.io/npm/v/@woby/phone-input.svg?style=flat)](https://www.npmjs.com/package/@woby/phone-input)
+[![npm downloads](https://img.shields.io/npm/dm/@woby/phone-input.svg?style=flat)](https://www.npmjs.com/package/@woby/phone-input)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/wobyjs/phone-input#contributing)
+[![travis build](https://travis-ci.org/wobyjs/phone-input.svg?branch=master)](https://travis-ci.org/wobyjs/phone-input)
 
 ![animation](https://media.giphy.com/media/xiORAWnqoTJDsH0UOI/giphy.gif)
 
 ## Installation
 ```shell-script
-npm install woby-phone-input-2 --save
+npm install @woby/phone-input --save
 ```
 
 ## Usage
 ```jsx
-import PhoneInput from 'woby-phone-input-2'
-import 'woby-phone-input-2/lib/style.css'
+import PhoneInput from '@woby/phone-input'
+import '@woby/phone-input/lib/style.css'
 
 <PhoneInput
   country={'us'}
@@ -28,9 +28,9 @@ import 'woby-phone-input-2/lib/style.css'
 ```
 **available styles** - style • high-res • material • bootstrap • semantic-ui • plain
 
-#### [Demo 1 (UI)](https://bl00mber.github.io/woby-phone-input-2.html) - [Demo 2 (CSS)](https://bl00mber.github.io/woby-phone-input-2-css.html)
+#### [Demo 1 (UI)](https://bl00mber.github.io/phone-input-2.html) - [Demo 2 (CSS)](https://bl00mber.github.io/phone-input-2-css.html)
 
-![screenshot](https://raw.githubusercontent.com/bl00mber/woby-phone-input-2/master/test/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/bl00mber/phone-input-2/master/test/screenshot.png)
 
 ## Options
 <table>
@@ -322,7 +322,7 @@ Country data object not returns from onKeyDown event
 `hu` Hungarian, `pl` Polish, `ko` Korean
 
 ```jsx
-import es from 'woby-phone-input-2/lang/es.json'
+import es from '@woby/phone-input-2/lang/es.json'
 
 <PhoneInput
   localization={es}
@@ -520,8 +520,8 @@ const placeholder = useMemo(() => {
 - Do not send new languages
 
 ## License
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/woby-phone-input-2/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/phone-input-2/blob/master/LICENSE)
 
-Based on [woby-phone-input-2](https://github.com/bl00mber/woby-phone-input-2)
+Based on [woby-phone-input-2](https://github.com/bl00mber/phone-input-2)
 
 Make sure you donated for lib maintenance [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/wongchichong)

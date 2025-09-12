@@ -4,13 +4,12 @@ import memoize from 'lodash.memoize'
 import reduce from 'lodash.reduce'
 import startsWith from 'lodash.startswith'
 import './utils/prototypes'
-import '../dist/output.css'
 import { flag as fg } from './high-res-flags'
 import CountryData from './CountryData.js'
 import { Country } from './Country'
 import { getCountryData, guessSelectedCountry, getProbableCandidate, concatPreferredCountries, scrollTo, cursorToEnd, scrollToTop, getDropdownCountryName } from './utils'
 
-
+import './input.css'
 
 interface PhoneInputProps {
     country?: ObservableMaybe<string | number>
@@ -888,7 +887,7 @@ export const PhoneInput = (propertis: PhoneInputProps) => {
                         aria-expanded={() => $$(showDropdown) ? true : undefined}
                     >
                         <div class={inputFlagClasses}>
-                            {!$$(disableDropdown) && <div class={arrowClasses}></div>}
+                            {!$$(disableDropdown) && <div class={arrowClasses as any}></div>}
                         </div>
                     </div>}
 

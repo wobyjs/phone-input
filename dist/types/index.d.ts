@@ -1,8 +1,8 @@
 import { Observable, CSSProperties, type JSX, ObservableMaybe } from 'woby';
 import './utils/prototypes';
-import '../dist/output.css';
 import { Country } from './Country';
 import { getCountryData } from './utils';
+import './input.css';
 interface PhoneInputProps {
     country?: ObservableMaybe<string | number>;
     value?: Observable<string>;

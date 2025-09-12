@@ -150,7 +150,7 @@ function requireLodash_reduce() {
     var FUNC_ERROR_TEXT = "Expected a function";
     var HASH_UNDEFINED = "__lodash_hash_undefined__";
     var UNORDERED_COMPARE_FLAG = 1, PARTIAL_COMPARE_FLAG = 2;
-    var INFINITY = 1 / 0, MAX_SAFE_INTEGER = 9007199254740991;
+    var MAX_SAFE_INTEGER = 9007199254740991;
     var argsTag = "[object Arguments]", arrayTag = "[object Array]", boolTag = "[object Boolean]", dateTag = "[object Date]", errorTag = "[object Error]", funcTag = "[object Function]", genTag = "[object GeneratorFunction]", mapTag = "[object Map]", numberTag = "[object Number]", objectTag = "[object Object]", promiseTag = "[object Promise]", regexpTag = "[object RegExp]", setTag = "[object Set]", stringTag = "[object String]", symbolTag = "[object Symbol]", weakMapTag = "[object WeakMap]";
     var arrayBufferTag = "[object ArrayBuffer]", dataViewTag = "[object DataView]", float32Tag = "[object Float32Array]", float64Tag = "[object Float64Array]", int8Tag = "[object Int8Array]", int16Tag = "[object Int16Array]", int32Tag = "[object Int32Array]", uint8Tag = "[object Uint8Array]", uint8ClampedTag = "[object Uint8ClampedArray]", uint16Tag = "[object Uint16Array]", uint32Tag = "[object Uint32Array]";
     var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, reIsPlainProp = /^\w*$/, reLeadingDot = /^\./, rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
@@ -168,12 +168,12 @@ function requireLodash_reduce() {
     var freeModule = freeExports && true && module && !module.nodeType && module;
     var moduleExports = freeModule && freeModule.exports === freeExports;
     var freeProcess = moduleExports && freeGlobal.process;
-    var nodeUtil = function() {
+    var nodeUtil = (function() {
       try {
         return freeProcess && freeProcess.binding("util");
       } catch (e) {
       }
-    }();
+    })();
     var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
     function arrayReduce(array, iteratee, accumulator, initAccum) {
       var index = -1, length = array ? array.length : 0;
@@ -251,10 +251,10 @@ function requireLodash_reduce() {
     }
     var arrayProto = Array.prototype, funcProto = Function.prototype, objectProto = Object.prototype;
     var coreJsData = root["__core-js_shared__"];
-    var maskSrcKey = function() {
+    var maskSrcKey = (function() {
       var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || "");
       return uid ? "Symbol(src)_1." + uid : "";
-    }();
+    })();
     var funcToString = funcProto.toString;
     var hasOwnProperty = objectProto.hasOwnProperty;
     var objectToString = objectProto.toString;
@@ -599,7 +599,7 @@ function requireLodash_reduce() {
         return symbolToString ? symbolToString.call(value) : "";
       }
       var result = value + "";
-      return result == "0" && 1 / value == -INFINITY ? "-0" : result;
+      return result == "0" && 1 / value == -Infinity ? "-0" : result;
     }
     function castPath(value) {
       return isArray(value) ? value : stringToPath(value);
@@ -868,7 +868,7 @@ function requireLodash_reduce() {
         return value;
       }
       var result = value + "";
-      return result == "0" && 1 / value == -INFINITY ? "-0" : result;
+      return result == "0" && 1 / value == -Infinity ? "-0" : result;
     }
     function toSource(func) {
       if (func != null) {
@@ -3035,10 +3035,10 @@ function requireLodash_memoize() {
   }
   var arrayProto = Array.prototype, funcProto = Function.prototype, objectProto = Object.prototype;
   var coreJsData = root["__core-js_shared__"];
-  var maskSrcKey = function() {
+  var maskSrcKey = (function() {
     var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || "");
     return uid ? "Symbol(src)_1." + uid : "";
-  }();
+  })();
   var funcToString = funcProto.toString;
   var hasOwnProperty = objectProto.hasOwnProperty;
   var objectToString = objectProto.toString;
@@ -3403,11 +3403,8 @@ const PhoneInput = (propertis) => {
   const keys = {
     UP: 38,
     DOWN: 40,
-    RIGHT: 39,
-    LEFT: 37,
     ENTER: 13,
     ESC: 27,
-    PLUS: 43,
     A: 65,
     Z: 90,
     SPACE: 32,

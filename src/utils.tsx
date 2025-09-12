@@ -4,7 +4,7 @@ import memoize from 'lodash.memoize'
 import reduce from 'lodash.reduce'
 import startsWith from 'lodash.startswith'
 import './utils/prototypes'
-import '../dist/output.css'
+import './input.css'
 import { flag as fg } from './high-res-flags'
 import CountryData from './CountryData.js'
 import { Country } from './Country'
@@ -78,7 +78,7 @@ export const getCountryData = (selectedCountry: Country) => {
 // if enableAreaCodes == false, try to search in hidden area codes to detect area code correctly
 export const guessSelectedCountry = memoize((inputNumber, country: Country, onlyCountries: Country[], hiddenAreaCodes, enableAreaCodes, THIS: any): Country => {
     // then search and insert main country which has this area code
-    // https://github.com/bl00mber/woby-phone-input-2/issues/201
+    // https://github.com/bl00mber/phone-input-2/issues/201
     if (enableAreaCodes === false) {
         let mainCode
         $$(hiddenAreaCodes).some(country => {

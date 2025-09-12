@@ -1,5 +1,3 @@
-@import './style/material.css'
+@import './style/material.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";

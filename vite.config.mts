@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 // import dts from 'vite-plugin-dts'
 
@@ -26,7 +27,8 @@ const config = defineConfig({
         jsx: 'automatic',
     },
     plugins: [
-        // dts({ entryRoot: './src', outputDir: './dist/types' })
+        // dts({ entryRoot: './src', outputDir: './dist/types' }),
+        tailwindcss(),
     ],
     resolve: {
         alias: {
