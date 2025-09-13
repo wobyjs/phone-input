@@ -10,7 +10,7 @@ const config = defineConfig({
         minify: false,
         lib: {
             entry: ["./index.html"],
-            name: "woby-modal",
+            name: "@woby/modal",
             formats: [/*'cjs', '*/'es'/*, 'umd'*/],
             fileName: (format: string, entryName: string) => `${entryName}.${format}.js`
         },

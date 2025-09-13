@@ -522,6 +522,6 @@ const placeholder = useMemo(() => {
 ## License
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/phone-input-2/blob/master/LICENSE)
 
-Based on [woby-phone-input-2](https://github.com/bl00mber/phone-input-2)
+Based on [@woby/phone-input-2](https://github.com/bl00mber/phone-input-2)
 
 Make sure you donated for lib maintenance [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/wongchichong)
